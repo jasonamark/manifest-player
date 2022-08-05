@@ -35,8 +35,8 @@ function App() {
 
   useEffect(() => {
     if (videoClient != null && playerUi == null && manifestUrl) {
-      const options = {}; // Your PlayerOptions
-      const player = videoClient.requestPlayer(manifestUrl, options);
+      const options: Partial<types.PlayerOptions> = {};
+      const player: types.PlayerAPI = videoClient.requestPlayer(manifestUrl, options);
       setPlayerUi(new PlayerUiState(player));
     }
     return () => {
